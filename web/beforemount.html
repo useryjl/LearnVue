@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="vue/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <span id="str">{{str}}</span>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            str:"aaa"
+        },
+        methods:{
+            showinfo(){
+                alert(this.str+"bbb");
+            }
+        },
+
+        //表示模板已经在内存中创建成功   但还没渲染到页面中
+        beforeMount(){
+            var  message=document.getElementById("str").innerHTML;
+            alert(message);
+        }
+
+        //表示将内存中的模板挂在道页面中
+        // mounted(){
+        //     var  message=document.getElementById("str").innerHTML;
+        //     alert(message);
+        // }
+    })
+</script>
+</body>
+</html>

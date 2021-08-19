@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+<!--视图层-->
+<div id="app">
+<!--    动画 1-->
+<!--    v-if实现-->
+    <p v-if="flag">hello</p>
+    <input type="button" value="点击此处" @click="flag=!flag"/>
+</div>
+
+<script>
+    var vm =new Vue({
+        el:'#app',
+        data: {
+            flag: false
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="vue/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <span id="str">{{str}}</span>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            str:"aaa",
+            tt:''
+        },
+        methods:{
+            showinfo(){
+                alert(this.str+"bbb");
+            }
+        },
+
+        //此时vm对象中的data 等属性已经被创建好了
+        created(){
+            alert("begin");
+            //说明data已经创建
+            alert(this.str);
+            //说明methods已经创建
+            this.showinfo();
+        }
+    })
+</script>
+</body>
+</html>

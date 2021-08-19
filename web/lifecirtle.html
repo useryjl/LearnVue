@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+<!--视图层-->
+<div id="app">
+
+<!--    //声明周期-->
+<!-- 这些函数是钩子函数
+    1.对象创建阶段
+    beforecreate create
+    两个init方法  创建vm实列对象 创建钩子函数（与声明周期相关的函数）
+    创建vm对象中的data method等属性
+
+    2.对象运行阶段
+    beforemount mounted
+    beforeupdate update
+    在内存中创建字符串 用来渲染v中的页面
+    beforeupdate执行导致内存中的数据与页面中的不一样 不同步问题
+    执行update后 页面与数据的更同步
+
+    3.对象销毁阶段
+    beforedestory :执行完之后 对象的组件data methods等还没销毁，当该函数执行完之后会销毁该对象
+    destory :当执行该方法时 对象的组件data methods属性已经被销毁 不能使用
+
+
+
+  -->
+</div>
+<script>
+    // <!--自定义全局过滤器-->
+    Vue.filter('filter1',function (value) {
+        value=value.toUpperCase();
+        return value;
+    })
+
+    Vue.filter('filter2',function (value2) {
+        value2=value2.toString();
+        return value2;
+    })
+    var vm=new Vue({
+        el:'#app',
+        data: {
+            str:"aaa",
+        }
+    })
+</script>
+</body>
+</html>

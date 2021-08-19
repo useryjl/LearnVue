@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+<!--视图层-->
+<div id="app">
+    <div>
+<!--使用管道符连接多个过滤器-->
+        {{str | filter1 | filter2}}
+    </div>
+</div>
+<script>
+// <!--自定义全局过滤器-->
+    Vue.filter('filter1',function (value) {
+        value=value.toUpperCase();
+        return value;
+    })
+
+Vue.filter('filter2',function (value2) {
+    value2=value2.toString();
+    return value2;
+})
+    var vm=new Vue({
+        el:'#app',
+        data: {
+            str:"aaa",
+        }
+    })
+</script>
+</body>
+</html>

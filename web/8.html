@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue测试实例</title>
+    <script src="vue/vue.js"></script>
+</head>
+
+<!--实现计算器功能-->
+<!--实现双向数据绑定 v-model=""-->
+
+<body>
+<!--视图层-->
+<div id="app">
+    <p>num1:{{num1}}</p>
+    <p>num2:{{num2}}</p>
+    <p>result:{{result}}</p>
+<!--双向数据绑定  v-m操作-->
+    <input type="text" v-model="num1">
+    <select v-model="cdio">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" v-model="num2">
+    <input type="button" value="=" @click="counter">
+    <input type="text" v-model="result">
+</div>
+
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data: {
+            //model
+           num1:0,
+           num2:0,
+           result:0,
+           cdio:"*"
+        },
+        //methods属性
+        methods: {
+            counter(){
+                // 当前vm实列
+                if (this.cdio == "+") {
+                    this.result = parseInt(this.num1)+parseInt(this.num2);
+                }else if(this.cdio == "-"){
+                    this.result = parseInt(this.num1) -parseInt(this.num2);
+                }
+                else if(this.cdio == "*"){
+                    this.result = parseInt(this.num1) * parseInt(this.num2);
+                }else if(this.cdio == "/"){
+                    this.result = parseInt(this.num1) /parseInt(this.num2);
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

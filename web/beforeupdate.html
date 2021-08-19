@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+<!--对象运行阶段-->
+    <span id="111">{{str}}</span>
+    <input type="text" v-model="str">
+     同步元素：{{str}}
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            str:"aaa"
+        },
+        methods:{
+            showinfo(){
+                alert(this.str+"bbb");
+            }
+        },
+        //更新数据前执行该钩子函数  此时页面与data中的数据不同步
+        beforeUpdate(){
+            var message=document.getElementById("111").innerHTML;
+            alert(message);
+
+        },
+
+        // updated(){
+        //     var message=document.getElementById("111").innerHTML;
+        //     alert(message);
+        //
+        // }
+    })
+</script>
+</body>
+</html>

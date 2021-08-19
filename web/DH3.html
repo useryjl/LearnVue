@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例</title>
+    <script src="vue/vue.js"></script>
+    <style>
+
+        .tran1-enter-active{
+            /*bounce-in动画探入弹出*/
+            animation: bounce-in .6s
+        }
+
+        .tran2-leave-active{
+            animation: bounce-in .5s reverse;
+        }
+
+        /*css定义*/
+        @keyframes bounce-in {
+            0%{
+                transform: scale(0);
+            }
+
+            20%{
+                transform: scale(0.8);
+            }
+            50%{
+                transform: scale(1.5);
+            }
+
+            100%{
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+<!--视图层-->
+<div id="app">
+
+    <!--    transition元素 将要被动画展现的元素写在该标签中-->
+    <transition name="tran1">
+        <p v-if="flag1">
+            addddddddddddddddddddddddddddadae<br/>
+            adfafffffffffffffffffererereewewe<br/>
+            tyjjyjygfsawjefijgiajgijagrjgewew<br/>
+        </p>
+    </transition>
+
+    <input type="button" value="点击此处1" @click="flag1=!flag1"/>
+    <br/>
+    <br/>
+    <br/>
+    <transition name="tran2">
+        <p v-if="flag2">
+            addddddddddddddddddddddddddddadae<br/>
+            adfafffffffffffffffffererereewewe<br/>
+            tyjjyjygfsawjefijgiajgijagrjgewew<br/>
+        </p>
+    </transition>
+
+    <input type="button" value="点击此处2" @click="flag2=!flag2"/>
+
+</div>
+
+<script>
+    var vm =new Vue({
+        el:'#app',
+        data: {
+            flag1: false,
+            flag2: false
+
+        }
+    })
+</script>
+</body>
+</html>

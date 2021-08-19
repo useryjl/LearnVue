@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例</title>
+    <script src="vue/vue.js"></script>
+</head>
+<body>
+<!--视图层-->
+<div id="app">
+    <p>{{world}}</p>
+    <p>{{hello}}</p>
+
+<!--v-model 实现双向数据绑定-->
+<!--    v层改变 影响m层数据改变  ->v层插值表达式发生改变-->
+    <input type="text" v-model="hello">
+    <input type="text" v-model="world">
+</div>
+
+<script>
+   var vm =new Vue({
+        el:'#app',
+        data: {
+            //model
+            hello: 'Hello',
+            world: 'world'
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例</title>
+    <script src="vue/vue.js"></script>
+    <style>
+        /*在style中使用 控制transition元素实现动画效果*/
+        /*V-enter------进入之前,透明度为零*/
+        /*v-leave-to------离开之后，动画结束，透明度为零*/
+        .v-enter,.v-leave-to{
+            /*设置透明度*/
+            opacity: 0;
+            /**/
+            /*transform: opacity*/
+            transform: translateX(150px);
+        }
+
+        /**
+        v-active 时间段 表示 动画入场 0-1
+         */
+        /**
+        v-leave-active 时间段 表示 动画离场 1-0
+         */
+        .v-leave-active,v-enter-active{
+            transition: all 4.8s ease;
+        }
+    </style>
+</head>
+<body>
+<!--视图层-->
+<div id="app">
+
+<!--    transition元素 将要被动画展现的元素写在该标签中-->
+    <transition>
+        <p v-if="flag">hello</p>
+    </transition>
+
+    <input type="button" value="点击此处" @click="flag=!flag"/>
+</div>
+
+<script>
+    var vm =new Vue({
+        el:'#app',
+        data: {
+            flag: false
+        }
+    })
+</script>
+</body>
+</html>
